@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # todolist
 
 A new Flutter project.
@@ -14,3 +15,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+1. Пальоха Роман Валерійович
+2. r.paliokha@gmail.com
+3. 7-8 годин
+>>>>>>> 306543dc8d698513b64ccf391a12c01d27934c11
