@@ -1,1 +1,3 @@
-# TodoListApp
+1. Пальоха Роман Валерійович
+2. r.paliokha@gmail.com
+3. 7-8 годин
