@@ -75,9 +75,11 @@ class _InputFieldState extends State<InputField> {
                   if (enteredText.isNotEmpty) {
                     notes.addItem(enteredText);
                     textEditingController.clear();
-                    setState(() {
-                      isButtonEnabled = false;
-                    });
+                    setState(
+                      () {
+                        isButtonEnabled = false;
+                      },
+                    );
                   }
                 }
               : null,
