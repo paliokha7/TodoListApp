@@ -10,11 +10,27 @@ class InputField extends StatefulWidget {
 }
 
 class _InputFieldState extends State<InputField> {
-  final TextEditingController _textEditingController = TextEditingController();
+  late TextEditingController textEditingController = TextEditingController();
+  bool isButtonEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    textEditingController = TextEditingController();
+    textEditingController.addListener(
+      () {
+        setState(
+          () {
+            isButtonEnabled = textEditingController.text.isNotEmpty;
+          },
+        );
+      },
+    );
+  }
 
   @override
   void dispose() {
-    _textEditingController.dispose();
+    textEditingController.dispose();
     super.dispose();
   }
 
@@ -25,7 +41,7 @@ class _InputFieldState extends State<InputField> {
     return Column(
       children: [
         TextField(
-          controller: _textEditingController,
+          controller: textEditingController,
           style: const TextStyle(
             fontSize: 18,
           ),
@@ -36,6 +52,13 @@ class _InputFieldState extends State<InputField> {
               borderRadius: BorderRadius.circular(16.0),
             ),
           ),
+          onChanged: (text) {
+            setState(
+              () {
+                isButtonEnabled = text.isNotEmpty;
+              },
+            );
+          },
         ),
         const SizedBox(height: 16),
         ElevatedButton(
@@ -46,13 +69,18 @@ class _InputFieldState extends State<InputField> {
             ),
             minimumSize: const Size(double.infinity, 55),
           ),
-          onPressed: () {
-            final enteredText = _textEditingController.text;
-            if (enteredText.isNotEmpty) {
-              notes.addItem(enteredText);
-              _textEditingController.clear();
-            }
-          },
+          onPressed: isButtonEnabled
+              ? () {
+                  final enteredText = textEditingController.text;
+                  if (enteredText.isNotEmpty) {
+                    notes.addItem(enteredText);
+                    textEditingController.clear();
+                    setState(() {
+                      isButtonEnabled = false;
+                    });
+                  }
+                }
+              : null,
           child: const Text(
             'Add',
             style: TextStyle(
