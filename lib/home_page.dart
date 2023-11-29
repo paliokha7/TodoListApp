@@ -63,9 +63,9 @@ class HomePage extends StatelessWidget {
                       final item = notes.items[index];
                       return Dismissible(
                         key: UniqueKey(),
+                        direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
                           notes.removeItem(index);
-                          ScaffoldMessenger.of(context).removeCurrentSnackBar();
                         },
                         background: Container(
                           decoration: BoxDecoration(

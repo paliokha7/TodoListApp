@@ -1,4 +1,4 @@
-#Wed Nov 29 00:26:05 EET 2023
+#Wed Nov 29 04:41:11 EET 2023
 base.0=/Users/mac/FlutterDev/dartpr/todolist/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
